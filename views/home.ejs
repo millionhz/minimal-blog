@@ -7,21 +7,23 @@
     <div class="container my-3">
       <h1 class="mb-3">Home</h1>
 
-      <% posts.forEach((post) => { %>
-      <h5><%= post.title %></h5>
-      <p>
-        <% if (post.content.length > 100) { %>
-        <!---->
-        <%= post.content.slice(0,100) %>...
-        <a href="/post/<%= post.title %>">Read more</a>
-        <!---->
-        <% } else { %>
-        <!---->
-        <%= post.content %>
-        <!---->
-        <% } %>
-      </p>
-      <% }); %>
+      <div class="posts">
+        <% posts.forEach((post) => { %>
+        <h5><%= post.title %></h5>
+        <p>
+          <% if (post.content.length > 100) { %>
+          <!---->
+          <%= post.content.slice(0,100) %>...
+          <a href="/post/<%= post.title %>">Read more</a>
+          <!---->
+          <% } else { %>
+          <!---->
+          <%= post.content %>
+          <!---->
+          <% } %>
+        </p>
+        <% }); %>
+      </div>
     </div>
 
     <%- include('./partials/footer.ejs') %>
