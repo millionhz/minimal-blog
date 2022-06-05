@@ -8,6 +8,7 @@ const aboutRouter = require('./routes/about');
 const contactRouter = require('./routes/contact');
 const postRouter = require('./routes/post');
 const composeRouter = require('./routes/compose');
+const clearRouter = require('./routes/clear');
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
 app.use('/post', postRouter);
 app.use('/compose', composeRouter);
+app.use('/clear', clearRouter);
 
 app.use(errorPage);
 

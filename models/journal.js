@@ -19,3 +19,9 @@ module.exports.getPost = (title) =>
 module.exports.appendPost = (title, content) => {
   posts.push({ title, content });
 };
+
+module.exports.clear = () => {
+  while (posts.length) {
+    posts.pop();
+  }
+};
