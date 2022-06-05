@@ -1,4 +1,4 @@
 module.exports = (req, res, next) => {
-  res.render('error');
+  res.status(404).render('error');
   next();
 };
