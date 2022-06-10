@@ -18,7 +18,7 @@ const postSchema = mongoose.Schema({
     type: String,
     maxLength: [100, 'Max length exceeded'],
     required: [
-      function required() {
+      function () {
         return this.title !== '';
       },
       'Title can not be empty',
@@ -30,7 +30,7 @@ const postSchema = mongoose.Schema({
     type: String,
     maxLength: [10000, 'Max length exceeded'],
     required: [
-      function required() {
+      function () {
         return this.content !== '';
       },
       'Content can not be empty',
@@ -39,22 +39,22 @@ const postSchema = mongoose.Schema({
   },
 });
 
-postSchema.statics.getPosts = function getPosts() {
-  return this.find({});
+postSchema.statics.getPosts = function () {
+  return this.find({}).exec();
 };
 
-postSchema.statics.getPostByTitle = function getPostByTitle(title) {
-  return this.findOne({ title });
+postSchema.statics.getPostById = function (id) {
+  return this.findById(id).exec();
 };
 
-postSchema.statics.addPost = function addPost(title, content) {
+postSchema.statics.addPost = function (title, content) {
   return this({
     title,
     content,
   }).save();
 };
 
-postSchema.statics.initDevDB = async function insertDefaults() {
+postSchema.statics.initDevDB = async function () {
   await this.deleteMany({}).exec();
   await this.insertMany(defaults);
 };
