@@ -59,7 +59,7 @@ postSchema.statics.initDevDB = async function insertDefaults() {
   await this.insertMany(defaults);
 };
 
-if (process.env.NODE_ENV !== 'prodcution') {
+if (process.env.NODE_ENV !== 'production') {
   module.exports = mongoose.model('post_dev', postSchema);
 } else {
   module.exports = mongoose.model('post', postSchema);
