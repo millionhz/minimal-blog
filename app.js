@@ -1,5 +1,8 @@
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
+
+const Post = require('./models/post');
 
 const errorPage = require('./middlewares/error');
 
@@ -21,4 +24,19 @@ app.use('/compose', composeRouter);
 
 app.use(errorPage);
 
-app.listen(process.env.PORT);
+mongoose
+  .connect(process.env.DB)
+  .then(() => {
+    if (process.env.NODE_ENV !== 'production') {
+      Post.initDevDB();
+    }
+
+    app.listen(process.env.PORT, () => {
+      console.log(`Server listening on ${process.env.PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log('Database connection failed');
+    console.log(err);
+    mongoose.disconnect();
+  });

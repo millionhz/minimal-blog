@@ -1,11 +1,13 @@
 const express = require('express');
 
-const journal = require('../models/journal');
+const Post = require('../models/post');
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('home', { posts: journal.posts });
+  Post.getPosts().then((posts) => {
+    res.render('home', { posts });
+  });
 });
 
 module.exports = router;

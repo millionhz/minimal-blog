@@ -1,17 +1,17 @@
 const express = require('express');
 
-const journal = require('../models/journal');
+const Post = require('../models/post');
 
 const router = express.Router();
 
 router.get('/:title', (req, res, next) => {
-  const post = journal.getPost(req.params.title);
-
-  if (post) {
-    res.render('post', { post });
-  } else {
-    next();
-  }
+  Post.getPostByTitle(req.params.title).then((post) => {
+    if (post) {
+      res.render('post', { post });
+    } else {
+      next();
+    }
+  });
 });
 
 module.exports = router;
