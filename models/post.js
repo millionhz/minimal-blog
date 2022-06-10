@@ -24,6 +24,7 @@ const postSchema = mongoose.Schema({
       'Title can not be empty',
     ],
     unique: true,
+    trim: true,
   },
   content: {
     type: String,
@@ -34,6 +35,7 @@ const postSchema = mongoose.Schema({
       },
       'Content can not be empty',
     ],
+    trim: true,
   },
 });
 
