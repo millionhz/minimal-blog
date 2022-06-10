@@ -46,6 +46,10 @@ postSchema.statics.getPostById = function (id) {
   return this.findById(id).exec();
 };
 
+postSchema.statics.deletePostById = function (id) {
+  return this.findByIdAndDelete(id).exec();
+};
+
 postSchema.statics.addPost = function (title, content) {
   return this({
     title,

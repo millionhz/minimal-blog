@@ -6,7 +6,19 @@
 
     <div class="container my-3">
       <h1><%= post.title %></h1>
-      <p><%= post.content %></p>
+      <p class="my-1"><%= post.content %></p>
+      <div class="text-end">
+        <form action="/delete" method="post">
+          <button
+            class="btn text-danger"
+            type="submit"
+            name="id"
+            value="<%= post.id %>"
+          >
+            <em>Delete</em>
+          </button>
+        </form>
+      </div>
     </div>
 
     <%- include('./partials/footer') %>
