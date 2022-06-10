@@ -23,7 +23,6 @@ const postSchema = mongoose.Schema({
       },
       'Title can not be empty',
     ],
-    unique: true,
     trim: true,
   },
   content: {
