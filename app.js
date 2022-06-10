@@ -27,7 +27,7 @@ app.use(errorPage);
 mongoose
   .connect(process.env.DB)
   .then(() => {
-    if (process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV === 'development') {
       Post.initDevDB();
     }
 
