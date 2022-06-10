@@ -6,7 +6,6 @@ const errorPage = require('./middlewares/error');
 const indexRouter = require('./routes/index');
 const postRouter = require('./routes/post');
 const composeRouter = require('./routes/compose');
-const clearRouter = require('./routes/clear');
 
 const app = express();
 
@@ -19,7 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/post', postRouter);
 app.use('/compose', composeRouter);
-app.use('/clear', clearRouter);
 
 app.use(errorPage);
 
