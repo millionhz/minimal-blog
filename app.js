@@ -2,8 +2,6 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 
-const Post = require('./models/post');
-
 const errorPage = require('./middlewares/error');
 
 const indexRouter = require('./routes/index');
@@ -27,10 +25,6 @@ app.use(errorPage);
 mongoose
   .connect(process.env.DB)
   .then(() => {
-    if (process.env.NODE_ENV === 'development') {
-      Post.initDevDB();
-    }
-
     app.listen(process.env.PORT, () => {
       console.log(`Server listening on ${process.env.PORT}`);
     });

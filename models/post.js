@@ -60,7 +60,9 @@ postSchema.statics.initDevDB = async function insertDefaults() {
 };
 
 if (process.env.NODE_ENV === 'development') {
-  module.exports = mongoose.model('post_dev', postSchema);
+  const devModel = mongoose.model('post_dev', postSchema);
+  devModel.initDevDB();
+  module.exports = devModel;
 } else {
   module.exports = mongoose.model('post', postSchema);
 }
