@@ -16,7 +16,7 @@ const defaults = [
 const postSchema = mongoose.Schema({
   title: {
     type: String,
-    maxLength: 100,
+    maxLength: [100, 'Max length exceeded'],
     required: [
       function required() {
         return this.title !== '';
@@ -27,7 +27,7 @@ const postSchema = mongoose.Schema({
   },
   content: {
     type: String,
-    maxLength: 3000,
+    maxLength: [10000, 'Max length exceeded'],
     required: [
       function required() {
         return this.content !== '';
