@@ -1,0 +1,18 @@
+<div class="posts">
+  <% posts.forEach((post) => { %>
+  <h5>
+    <a class="text-dark post" href=<%= `/post/${post.id}` %>
+      ><%= post.title %></a
+    >
+  </h5>
+  <p>
+    <%= post.content.slice(0,100) %>
+    <!---->
+    <% if (post.content.length > 100) { %>
+    <!---->
+    ...<a href="<%= `/post/${post.id}` %>">Read more</a>
+    <!---->
+    <% }%>
+  </p>
+  <% }); %>
+</div>
