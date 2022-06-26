@@ -62,7 +62,7 @@ postSchema.statics.initDevDB = async function () {
   await this.insertMany(defaults);
 };
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV !== 'production') {
   const devModel = mongoose.model('post_dev', postSchema);
   devModel.initDevDB();
   module.exports = devModel;
