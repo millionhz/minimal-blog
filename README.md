@@ -1,3 +1,4 @@
+![book](./public/images/favicon.ico)
 # Minimal Journal
 
 A minimal blog site made with:
