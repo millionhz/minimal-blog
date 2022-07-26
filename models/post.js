@@ -19,7 +19,7 @@ const postSchema = mongoose.Schema({
     maxLength: [100, 'Max length exceeded'],
     required: [
       function () {
-        return this.title !== '';
+        return this.title.length < 1;
       },
       'Title can not be empty',
     ],
@@ -30,7 +30,7 @@ const postSchema = mongoose.Schema({
     maxLength: [10000, 'Max length exceeded'],
     required: [
       function () {
-        return this.content !== '';
+        return this.content.length < 1;
       },
       'Content can not be empty',
     ],
