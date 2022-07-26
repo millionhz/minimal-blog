@@ -53,6 +53,12 @@ Note: If NODE_ENV is set to **production**, `npm` will not install devDependenci
 
 ### Run the app
 
+Production:
 ```
 npm start
+```
+
+Development:
+```
+nodemon .
 ```
