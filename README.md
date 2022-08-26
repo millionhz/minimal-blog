@@ -1,7 +1,10 @@
 ![book](./public/images/favicon.ico)
 # Minimal Journal
 
-A minimal blog site made with:
+A minimal blog site.
+
+## Modules Used
+
 - express
 - ejs
 - bootstrap
@@ -38,7 +41,7 @@ Sample `nodemon.json`:
         "PORT": 3000,
         "DB": "mongodb://127.0.0.1:27017/minimal_blog",
         "NODE_ENV": "development"
-        
+
     }
 }
 ```
