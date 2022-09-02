@@ -63,5 +63,5 @@ npm start
 
 Development:
 ```
-nodemon .
+npm run dev
 ```
