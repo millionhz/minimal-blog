@@ -17,23 +17,13 @@ const postSchema = mongoose.Schema({
   title: {
     type: String,
     maxLength: [100, 'Max length exceeded'],
-    required: [
-      function () {
-        return this.title.length < 1;
-      },
-      'Title can not be empty',
-    ],
+    required: [true, 'Title can not be empty'],
     trim: true,
   },
   content: {
     type: String,
     maxLength: [10000, 'Max length exceeded'],
-    required: [
-      function () {
-        return this.content.length < 1;
-      },
-      'Content can not be empty',
-    ],
+    required: [true, 'Content can not be empty'],
     trim: true,
   },
 });
